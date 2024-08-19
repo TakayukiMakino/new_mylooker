@@ -92,7 +92,7 @@ view: users {
 
   dimension: full_name_length {
     type:  number
-    sql: length(${full_name});;
+    sql: length(${full_name}) - 1;;
   }
 
   # ----- Sets of fields for drilling ------

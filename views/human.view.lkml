@@ -37,7 +37,7 @@ view: human {
 
   dimension: full_name {
     type:  string
-    sql: ${TABLE}.first_name ${TABLE}.last_name ;;
+    sql: concat(${TABLE}.first_name, " ", ${TABLE}.last_name) ;;
   }
 
   measure: count {

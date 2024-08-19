@@ -90,6 +90,11 @@ view: users {
     sql: concat(${TABLE}.first_name, " ", ${TABLE}.last_name) ;;
   }
 
+  dimension: full_name_length {
+    type:  number
+    sql: length(${full_name});;
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

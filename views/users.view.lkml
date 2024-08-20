@@ -95,6 +95,51 @@ view: users {
     sql: length(${full_name}) - 1;;
   }
 
+  dimension: age_tier {
+    case: {
+      when: {
+        sql: ${age} < 10;;
+        label: "0-9 years"
+      }
+      when: {
+        sql: ${age} < 20 AND ${age} >= 10;;
+        label: "10-19 years"
+      }
+      when: {
+        sql: ${age} < 30 AND ${age} >= 20;;
+        label: "20-29 years"
+      }
+      when: {
+        sql: ${age} < 40 AND ${age} >= 30;;
+        label: "30-39 years"
+      }
+      when: {
+        sql: ${age} < 50 AND ${age} >= 40;;
+        label: "40-49 years"
+      }
+      when: {
+        sql: ${age} < 60 AND ${age} >= 50;;
+        label: "50-59 years"
+      }
+      when: {
+        sql: ${age} < 70 AND ${age} >= 60;;
+        label: "60-69 years"
+      }
+      when: {
+        sql: ${age} < 80 AND ${age} >= 70;;
+        label: "70-79 years"
+      }
+      when: {
+        sql: ${age} < 90 AND ${age} >= 80;;
+        label: "80-89 years"
+      }
+      when: {
+        sql: ${age} < 100 AND ${age} >= 90;;
+        label: "90-99 years"
+      }
+    }
+  }
+
   # ----- Sets of fields for drilling ------
   set: detail {
     fields: [

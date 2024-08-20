@@ -68,6 +68,12 @@ view: order_items {
     type: count
     drill_fields: [id, orders.id, inventory_items.id]
   }
+
+  measure: previous_count {
+    type:  number
+    sql: offset(${count}, -1);;
+  }
+
   measure: total_revenue {
     type: sum
     sql: ${sale_price} ;;
